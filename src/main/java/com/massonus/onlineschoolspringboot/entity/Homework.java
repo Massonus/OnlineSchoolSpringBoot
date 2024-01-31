@@ -1,6 +1,7 @@
 package com.massonus.onlineschoolspringboot.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 import lombok.ToString;
 
@@ -21,6 +22,7 @@ public class Homework implements Serializable {
     @Column(name = "homework_id", nullable = false)
     private Long id;
 
+    @NotBlank(message = "Task cannot be empty")
     @Column(name = "task")
     private String task;
 

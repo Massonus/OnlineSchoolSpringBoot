@@ -1,6 +1,8 @@
 package com.massonus.onlineschoolspringboot.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
 import lombok.ToString;
 
@@ -19,14 +21,18 @@ public class Person implements Comparable<Person>, Serializable {
     @Column(name = "person_id", nullable = false)
     private Long id;
 
+    @NotBlank(message = "First name cannot be empty")
     @Column(name = "first_name")
     private String firstName;
 
+    @NotBlank(message = "Last name cannot be empty")
     @Column(name = "last_name")
     private String lastName;
 
+    @NotBlank(message = "Phone cannot be empty")
     private String phone;
 
+    @NotBlank(message = "Email cannot be empty")
     private String email;
 
     @ManyToMany(fetch = FetchType.LAZY)

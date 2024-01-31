@@ -19,7 +19,7 @@
     </div>
 </nav>
 
-<h1>Hello ${person.getId()!""}</h1>
+<h1>Hello ${person.getFirstName()!""}</h1>
 <p> ${person}
 
 </body>
