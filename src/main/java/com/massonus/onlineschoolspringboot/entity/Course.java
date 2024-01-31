@@ -1,6 +1,7 @@
 package com.massonus.onlineschoolspringboot.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 import lombok.ToString;
 
@@ -19,6 +20,7 @@ public class Course implements Comparable<Course>, Serializable {
     @Column(name = "course_id", nullable = false)
     private Long id;
 
+    @NotBlank (message = "name cannot be empty")
     @Column(name = "course_name")
     private String courseName;
 

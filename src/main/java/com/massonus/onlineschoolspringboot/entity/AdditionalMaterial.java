@@ -1,6 +1,8 @@
 package com.massonus.onlineschoolspringboot.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
 import lombok.ToString;
 
@@ -17,6 +19,7 @@ public class AdditionalMaterial implements Serializable {
     @Column(name = "material_id", nullable = false)
     private Long id;
 
+    @NotBlank (message = "Task cannot be empty")
     private String task;
 
     @Column(columnDefinition = "text", name = "resource_type")
