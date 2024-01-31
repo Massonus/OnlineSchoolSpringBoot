@@ -13,7 +13,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
-public class CourseService implements UniversalService<Course> {
+public class CourseService {
 
     private final CourseRepo courseRepo;
     private final PersonService personService;

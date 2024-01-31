@@ -1,9 +1,9 @@
 package com.massonus.onlineschoolspringboot.entity;
 
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.ToString;
 
-import jakarta.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
 import java.time.LocalDate;

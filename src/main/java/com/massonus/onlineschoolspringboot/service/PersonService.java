@@ -21,7 +21,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
-public class PersonService implements UniversalService<Person> {
+public class PersonService {
 
     private final PersonRepo personRepo;
     private final CourseRepo courseRepo;
@@ -36,7 +36,7 @@ public class PersonService implements UniversalService<Person> {
 
     Person person;
 
-    public Person createElementByUserForm(final String firstName, final String lastName, final String phone, final String email, Role role, final List<Integer> lectureIdList, final List<Integer> courseIdList) {
+    public void createElementByUserForm(final String firstName, final String lastName, final String phone, final String email, Role role, final List<Integer> lectureIdList, final List<Integer> courseIdList) {
         person = new Person();
 
         person.setFirstName(firstName);
@@ -55,7 +55,6 @@ public class PersonService implements UniversalService<Person> {
 
         coursesForPerson(person, courseIdList);
 
-        return person;
     }
 
     public Person createElementAuto(final Course course) {

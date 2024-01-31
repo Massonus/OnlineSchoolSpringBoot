@@ -12,7 +12,7 @@ import java.util.Optional;
 import java.util.Random;
 
 @Service
-public class HomeworkService implements UniversalService<Homework> {
+public class HomeworkService {
 
     private final HomeworkRepo homeworkRepo;
     private final LectureRepo lectureRepo;

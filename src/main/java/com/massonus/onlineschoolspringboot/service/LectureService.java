@@ -11,7 +11,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
-public class LectureService implements UniversalService<Lecture> {
+public class LectureService {
     private final LectureRepo lectureRepo;
     private final AdditionalMaterialService materialsService;
     private final HomeworkService homeworkService;
@@ -36,7 +36,7 @@ public class LectureService implements UniversalService<Lecture> {
 
         lecture.setDescription(description);
 
-        Course courseById = courseRepo.getById(courseId);
+        Course courseById = courseRepo.findById(courseId).orElse(null);
         lecture.setCourse(courseById);
 
         Person personForLecture = personRepo.findById(personId).orElse(null);
