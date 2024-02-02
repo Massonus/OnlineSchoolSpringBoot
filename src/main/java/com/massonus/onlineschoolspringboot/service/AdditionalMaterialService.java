@@ -38,6 +38,16 @@ public class AdditionalMaterialService {
         return material;
     }
 
+    public AdditionalMaterial refactorElementByUserForm(final AdditionalMaterial material, String task, ResourceType resourceType, Long lectureId) {
+
+        material.setTask(task);
+        material.setResourceType(resourceType);
+        Lecture lectureById = lectureRepo.findById(lectureId).orElse(null);
+        material.setLecture(lectureById);
+
+        return material;
+    }
+
     AdditionalMaterial createElementAuto() {
         material = new AdditionalMaterial();
         long id = materialsRepo.findAll().size() + 1L;

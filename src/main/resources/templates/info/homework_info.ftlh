@@ -19,8 +19,18 @@
     </div>
 </nav>
 
-<h1>Hello ${homework.getTask()!""}</h1>
 <p> ${homework}
+
+<h2>Edit the Homework</h2>
+<form method="post" action="/homework/edit/${id}">
+    <label for="task">Task:</label>
+    <input type="text" id="task" name="task" required><br><br>
+
+    <label for="lecture_id">Lecture id:</label>
+    <input type="number" id="lecture_id" name="lectureId" required><br><br>
+
+    <input type="submit" value="Send">
+</form>
 
 </body>
 </html>

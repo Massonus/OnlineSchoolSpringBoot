@@ -21,19 +21,20 @@
 </nav>
 <h2>Select the button</h2>
 
-<table>
+<table border="1px">
     <thead>
     <tr>
         <th>Id</th>
         <th>Name</th>
+        <th>delete</th>
     </tr>
     </thead>
     <tbody>
     <#list courses as course>
         <tr>
-            <td>${course.id!""}</td>
+            <td>${course.id}</td>
             <td>
-                <li><a href="/course/${course.id!""}">${course.courseName!""}</a></li>
+                <li><a href="/course/${course.id}">${course.courseName}</a></li>
             </td>
         </tr>
     </#list>

@@ -19,6 +19,9 @@ public class Menu {
         menuItems.add(new MenuItem("/all-homework", "All homework"));
         menuItems.add(new MenuItem("/all-lectures", "All Lectures"));
         menuItems.add(new MenuItem("/all-people", "All people"));
+        menuItems.add(new MenuItem("/image", "Add image"));
+        menuItems.add(new MenuItem("/images/1", "See image"));
+
     }
 
 }

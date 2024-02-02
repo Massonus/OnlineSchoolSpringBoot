@@ -19,8 +19,24 @@
     </div>
 </nav>
 
-<h1>Hello ${material.getTask()!""}</h1>
 <p> ${material}
+
+<h2>Edit the Material</h2>
+<form method="post" action="/material/edit/${id}">
+    <label for="task">Task:</label>
+    <input type="text" id="task" name="task" required><br><br>
+
+    <label>Type:
+        <input type="radio" name="type" value="URL" checked>URL
+        <input type="radio" name="type" value="VIDEO">VIDEO
+        <input type="radio" name="type" value="BOOK">BOOK
+    </label><br><br>
+
+    <label for="lecture_id">Lecture id:</label>
+    <input type="number" id="lecture_id" name="lectureId" required><br><br>
+
+    <input type="submit" value="Send">
+</form>
 
 </body>
 </html>

@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Objects;
+
 @Controller
 public class AdditionalMaterialController {
 
@@ -47,6 +49,26 @@ public class AdditionalMaterialController {
         ResourceType resourceType = ResourceType.valueOf(type);
         final AdditionalMaterial newMaterial = materialService.createElementByUserForm(task, resourceType, lectureId);
         materialService.saveMaterial(newMaterial);
+        return "redirect:/all-materials";
+    }
+
+    @GetMapping("/material/delete/{id}")
+    public String deleteHomework(@PathVariable Long id) {
+        final AdditionalMaterial material = materialService.getMaterialById(id).orElse(null);
+        materialService.deleteMaterial(Objects.requireNonNull(material).getId());
+        return "redirect:/all-materials";
+    }
+
+    @PostMapping("/material/edit/{id}")
+    public String postEditPerson(@PathVariable Long id,
+                                 @RequestParam String task,
+                                 @RequestParam String type,
+                                 @RequestParam Long lectureId) {
+
+        final AdditionalMaterial material = materialService.getMaterialById(id).get();
+        final AdditionalMaterial editedMaterial = materialService.refactorElementByUserForm(material, task, ResourceType.valueOf(type), lectureId);
+        materialService.saveMaterial(editedMaterial);
+
         return "redirect:/all-materials";
     }
 

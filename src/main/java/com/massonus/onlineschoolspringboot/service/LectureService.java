@@ -45,6 +45,21 @@ public class LectureService {
         return lecture;
     }
 
+    public Lecture refactorElementByUserForm(final Lecture lecture, final String name, final String description, final Long courseId, final Long personId) {
+
+        lecture.setSubject(name);
+
+        lecture.setDescription(description);
+
+        Course courseById = courseRepo.findById(courseId).orElse(null);
+        lecture.setCourse(courseById);
+
+        Person personForLecture = personRepo.findById(personId).orElse(null);
+        lecture.setPerson(personForLecture);
+
+        return lecture;
+    }
+
     public Lecture createElementAuto(final Course course, final Person person) {
         lecture = new Lecture();
         long size = lectureRepo.findAll().size();

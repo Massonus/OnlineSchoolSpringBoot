@@ -21,7 +21,7 @@
 </nav>
 <h2>Select the button</h2>
 
-<table>
+<table border="1px">
     <thead>
     <tr>
         <th>Id</th>
@@ -30,6 +30,7 @@
         <th>lecture date</th>
         <th>course id</th>
         <th>person id</th>
+        <th>delete</th>
     </tr>
     </thead>
     <tbody>
@@ -37,12 +38,13 @@
         <tr>
             <td>${lecture.id!""}</td>
             <td>
-                <li><a href="/lecture/${lecture.id!""}">${lecture.subject!""}</a></li>
+                <li><a href="/lecture/${lecture.id}">${lecture.subject}</a></li>
             </td>
-            <td>${lecture.description!""}</td>
-            <td>${lecture.lectureDate!""}</td>
-            <td>${lecture.course.getId()!""}</td>
-            <td>${lecture.person.getId()!""}</td>
+            <td>${lecture.description}</td>
+            <td>${lecture.lectureDate}</td>
+            <td>${lecture.course.getId()}</td>
+            <td>${lecture.person.getId()}</td>
+            <td><a href="/lecture/delete/${lecture.getId()}"><p>DELETE</p></a></td>
         </tr>
     </#list>
     </tbody>
