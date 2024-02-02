@@ -34,12 +34,12 @@
     <tbody>
     <#list materials as material>
         <tr>
-            <td>${material.id!""}</td>
-            <td>${material.resourceType!""}</td>
+            <td>${material.id}</td>
+            <td>${material.resourceType}</td>
             <td>
-                <li><a href="/material/${material.id!""}">${material.task!""}</a></li>
+                <li><a href="/material/${material.id}">${material.task}</a></li>
             </td>
-            <td>${material.lecture.getId()!""}</td>
+            <td>${material.lecture.getId()}</td>
             <td><a href="/material/delete/${material.getId()}"><p>DELETE</p></a></td>
         </tr>
     </#list>

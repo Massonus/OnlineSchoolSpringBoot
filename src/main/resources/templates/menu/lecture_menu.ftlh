@@ -38,12 +38,12 @@
         <tr>
             <td>${lecture.id!""}</td>
             <td>
-                <li><a href="/lecture/${lecture.id!""}">${lecture.subject!""}</a></li>
+                <li><a href="/lecture/${lecture.id}">${lecture.subject}</a></li>
             </td>
-            <td>${lecture.description!""}</td>
-            <td>${lecture.lectureDate!""}</td>
-            <td>${lecture.course.getId()!""}</td>
-            <td>${lecture.person.getId()!""}</td>
+            <td>${lecture.description}</td>
+            <td>${lecture.lectureDate}</td>
+            <td>${lecture.course.getId()}</td>
+            <td>${lecture.person.getId()}</td>
             <td><a href="/lecture/delete/${lecture.getId()}"><p>DELETE</p></a></td>
         </tr>
     </#list>

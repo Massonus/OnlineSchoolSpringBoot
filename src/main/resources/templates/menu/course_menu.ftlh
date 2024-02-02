@@ -32,9 +32,9 @@
     <tbody>
     <#list courses as course>
         <tr>
-            <td>${course.id!""}</td>
+            <td>${course.id}</td>
             <td>
-                <li><a href="/course/${course.id!""}">${course.courseName!""}</a></li>
+                <li><a href="/course/${course.id}">${course.courseName}</a></li>
             </td>
         </tr>
     </#list>

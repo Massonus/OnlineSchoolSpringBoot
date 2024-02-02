@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 @Controller
 public class PersonController {
@@ -38,6 +39,8 @@ public class PersonController {
         final Person person = personService.getPersonById(id).orElse(null);
         model.addAttribute("person", person);
         model.addAttribute("menu", menu.getMenuItems());
+        model.addAttribute("lectures", lectureService.getLectureList());
+        model.addAttribute("courses", courseService.getCourseList());
         return "info/person_info";
     }
 
@@ -67,6 +70,23 @@ public class PersonController {
     public String deletePerson(@PathVariable Long id) {
         final Person person = personService.getPersonById(id).orElse(null);
         personService.deletePerson(Objects.requireNonNull(person).getId());
+        return "redirect:/all-people";
+    }
+
+    @PostMapping("/person/edit/{id}")
+    public String postEditPerson(@PathVariable Long id,
+                                 @RequestParam String firstName,
+                                 @RequestParam String lastName,
+                                 @RequestParam String phone,
+                                 @RequestParam String email,
+                                 @RequestParam String role,
+                                 @RequestParam List<Integer> lectureIdList,
+                                 @RequestParam List<Integer> courseIdList) {
+
+        Person person = personService.getPersonById(id).get();
+        Person editedPerson = personService.refactorElementByUserForm(person, firstName, lastName, phone, email, Role.valueOf(role), lectureIdList, courseIdList);
+        personService.savePerson(editedPerson);
+
         return "redirect:/all-people";
     }
 }

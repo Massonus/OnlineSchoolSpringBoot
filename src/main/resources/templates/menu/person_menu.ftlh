@@ -36,14 +36,14 @@
     <tbody>
     <#list people as perosn>
         <tr>
-            <td>${perosn.id!""}</td>
-            <td>${perosn.firstName!""}</td>
+            <td>${perosn.id}</td>
+            <td>${perosn.firstName}</td>
             <td>
-                <li><a href="/person/${perosn.id!""}">${perosn.lastName!""}</a></li>
+                <li><a href="/person/${perosn.id}">${perosn.lastName}</a></li>
             </td>
-            <td>${perosn.email!""}</td>
-            <td>${perosn.phone!""}</td>
-            <td>${perosn.role!""}</td>
+            <td>${perosn.email}</td>
+            <td>${perosn.phone}</td>
+            <td>${perosn.role}</td>
             <td><a href="/person/delete/${perosn.getId()}"><p>DELETE</p></a></td>
         </tr>
     </#list>
@@ -72,7 +72,7 @@
     <div class="choose-lectures">
         <#list lectures as lecture>
             <label>Lecture:
-                <input type="checkbox" name="lectureIdList" value=${lecture.id!""}> id: ${lecture.id!""}
+                <input type="checkbox" name="lectureIdList" value=${lecture.id}> id: ${lecture.id}
             </label><br>
         </#list>
     </div>
@@ -81,7 +81,7 @@
     <div class="choose-courses">
         <#list courses as course>
             <label>Course:
-                <input type="checkbox" name="courseIdList" value=${course.id!""}> id: ${course.id!""}
+                <input type="checkbox" name="courseIdList" value=${course.id}> id: ${course.id}
             </label><br>
         </#list>
     </div>

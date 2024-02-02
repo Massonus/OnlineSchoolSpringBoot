@@ -19,7 +19,7 @@
     </div>
 </nav>
 
-<h1>Hello ${lecture.getId()!""}</h1>
+<h1>Hello ${lecture.getId()}</h1>
 <p> ${lecture}
 
 </body>

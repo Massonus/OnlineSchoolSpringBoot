@@ -19,7 +19,7 @@
     </div>
 </nav>
 
-<h1>Hello ${material.getTask()!""}</h1>
+<h1>Hello ${material.getTask()}</h1>
 <p> ${material}
 
 </body>

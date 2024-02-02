@@ -36,10 +36,10 @@
         <tr>
             <td>${homework.id!""}</td>
             <td>
-                <li><a href="/homework/${homework.id!""}">${homework.task!""}</a></li>
+                <li><a href="/homework/${homework.id}">${homework.task}</a></li>
             </td>
-            <td>${homework.deadline!""}</td>
-            <td>${homework.lecture.getId()!""}</td>
+            <td>${homework.deadline}</td>
+            <td>${homework.lecture.getId()}</td>
             <td><a href="/homework/delete/${homework.getId()}"><p>DELETE</p></a></td>
         </tr>
     </#list>

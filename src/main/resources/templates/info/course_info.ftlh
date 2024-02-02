@@ -19,7 +19,7 @@
     </div>
 </nav>
 
-<h1>Hello ${course.courseName!""}</h1>
+<h1>Hello ${course.courseName}</h1>
 <p> ${course}
 
 </body>

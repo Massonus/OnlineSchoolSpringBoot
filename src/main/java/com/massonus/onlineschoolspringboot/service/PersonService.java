@@ -57,6 +57,28 @@ public class PersonService {
 
     }
 
+    public Person refactorElementByUserForm(Person person, final String firstName, final String lastName, final String phone, final String email, Role role, final List<Integer> lectureIdList, final List<Integer> courseIdList) {
+
+        person.setFirstName(firstName);
+
+        person.setLastName(lastName);
+
+        person.setPhone(phone);
+
+        person.setEmail(email);
+
+        person.setRole(role);
+
+        personRepo.save(person);
+
+        lecturesForPerson(person, lectureIdList);
+
+        coursesForPerson(person, courseIdList);
+
+        return person;
+
+    }
+
     public Person createElementAuto(final Course course) {
         person = new Person();
         Random random = new Random();
