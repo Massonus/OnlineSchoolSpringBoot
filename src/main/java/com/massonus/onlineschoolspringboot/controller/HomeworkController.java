@@ -54,4 +54,16 @@ public class HomeworkController {
         homeworkService.deleteHomework(Objects.requireNonNull(homework).getId());
         return "redirect:/all-homework";
     }
+
+    @PostMapping("/homework/edit/{id}")
+    public String postEditPerson(@PathVariable Long id,
+                                 @RequestParam String task,
+                                 @RequestParam Long lectureId) {
+
+        final Homework homework = homeworkService.getHomeworkById(id).get();
+        final Homework editedHomework = homeworkService.refactorElementByUserForm(homework, task, lectureId);
+        homeworkService.saveHomework(editedHomework);
+
+        return "redirect:/all-homework";
+    }
 }

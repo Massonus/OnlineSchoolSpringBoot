@@ -45,7 +45,7 @@ public class LectureService {
         return lecture;
     }
 
-    public Lecture refactorElementByUserForm(Lecture lecture, final String name, final String description, final Long courseId, final Long personId) {
+    public Lecture refactorElementByUserForm(final Lecture lecture, final String name, final String description, final Long courseId, final Long personId) {
 
         lecture.setSubject(name);
 

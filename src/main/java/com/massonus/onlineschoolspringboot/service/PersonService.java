@@ -57,7 +57,7 @@ public class PersonService {
 
     }
 
-    public Person refactorElementByUserForm(Person person, final String firstName, final String lastName, final String phone, final String email, Role role, final List<Integer> lectureIdList, final List<Integer> courseIdList) {
+    public Person refactorElementByUserForm(final Person person, final String firstName, final String lastName, final String phone, final String email, Role role, final List<Integer> lectureIdList, final List<Integer> courseIdList) {
 
         person.setFirstName(firstName);
 

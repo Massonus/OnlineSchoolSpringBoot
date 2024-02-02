@@ -35,6 +35,15 @@ public class HomeworkService {
         return homework;
     }
 
+    public Homework refactorElementByUserForm(final Homework homework, final String task, final Long lectureId) {
+
+        homework.setTask(task);
+        Lecture lectureById = lectureRepo.findById(lectureId).orElse(null);
+        homework.setLecture(lectureById);
+
+        return homework;
+    }
+
     Homework createElementAuto() {
         homework = new Homework();
         Random random = new Random();
