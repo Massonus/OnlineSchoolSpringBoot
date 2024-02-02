@@ -19,7 +19,6 @@
     </div>
 </nav>
 
-<h1>Hello ${homework.getTask()}</h1>
 <p> ${homework}
 
 </body>

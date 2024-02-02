@@ -19,7 +19,6 @@
     </div>
 </nav>
 
-<h1>${person.getFirstName()}</h1>
 <p> ${person}
 
 <h2>Edit the Person</h2>

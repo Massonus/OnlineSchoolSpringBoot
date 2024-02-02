@@ -56,4 +56,18 @@ public class LectureController {
         lectureService.deleteLecture(Objects.requireNonNull(lecture).getId());
         return "redirect:/all-lectures";
     }
+
+    @PostMapping("/lecture/edit/{id}")
+    public String postEditPerson(@PathVariable Long id,
+                                 @RequestParam String subject,
+                                 @RequestParam String description,
+                                 @RequestParam Long teacherId,
+                                 @RequestParam Long courseId) {
+
+        final Lecture lecture = lectureService.getLectureById(id).get();
+        final Lecture editedLEcture = lectureService.refactorElementByUserForm(lecture, subject, description, teacherId, courseId);
+        lectureService.saveLecture(editedLEcture);
+
+        return "redirect:/all-lectures";
+    }
 }

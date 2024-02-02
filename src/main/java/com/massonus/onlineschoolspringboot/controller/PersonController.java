@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
 
 @Controller
 public class PersonController {
@@ -83,8 +82,8 @@ public class PersonController {
                                  @RequestParam List<Integer> lectureIdList,
                                  @RequestParam List<Integer> courseIdList) {
 
-        Person person = personService.getPersonById(id).get();
-        Person editedPerson = personService.refactorElementByUserForm(person, firstName, lastName, phone, email, Role.valueOf(role), lectureIdList, courseIdList);
+        final Person person = personService.getPersonById(id).get();
+        final Person editedPerson = personService.refactorElementByUserForm(person, firstName, lastName, phone, email, Role.valueOf(role), lectureIdList, courseIdList);
         personService.savePerson(editedPerson);
 
         return "redirect:/all-people";
