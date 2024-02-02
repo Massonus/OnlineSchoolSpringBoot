@@ -21,13 +21,14 @@
 </nav>
 <h2>Select the button</h2>
 
-<table>
+<table border="1px">
     <thead>
     <tr>
         <th>Id</th>
         <th>Type</th>
         <th>Task</th>
         <th>Lecture id</th>
+        <th>delete</th>
     </tr>
     </thead>
     <tbody>
@@ -39,6 +40,7 @@
                 <li><a href="/material/${material.id!""}">${material.task!""}</a></li>
             </td>
             <td>${material.lecture.getId()!""}</td>
+            <td><a href="/material/delete/${material.getId()}"><p>DELETE</p></a></td>
         </tr>
     </#list>
     </tbody>

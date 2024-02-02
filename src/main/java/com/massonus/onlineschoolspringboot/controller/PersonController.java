@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
+import java.util.Objects;
 
 @Controller
 public class PersonController {
@@ -59,6 +60,13 @@ public class PersonController {
                               @RequestParam List<Integer> courseIdList) {
 
         personService.createElementByUserForm(firstName, lastName, phone, email, Role.valueOf(role), lectureIdList, courseIdList);
+        return "redirect:/all-people";
+    }
+
+    @GetMapping("/person/delete/{id}")
+    public String deletePerson(@PathVariable Long id) {
+        final Person person = personService.getPersonById(id).orElse(null);
+        personService.deletePerson(Objects.requireNonNull(person).getId());
         return "redirect:/all-people";
     }
 }

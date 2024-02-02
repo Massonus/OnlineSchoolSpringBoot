@@ -21,11 +21,12 @@
 </nav>
 <h2>Select the button</h2>
 
-<table>
+<table border="1px">
     <thead>
     <tr>
         <th>Id</th>
         <th>Name</th>
+        <th>delete</th>
     </tr>
     </thead>
     <tbody>

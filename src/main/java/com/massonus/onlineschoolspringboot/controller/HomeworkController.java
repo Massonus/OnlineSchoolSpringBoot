@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Objects;
+
 @Controller
 public class HomeworkController {
 
@@ -43,6 +45,13 @@ public class HomeworkController {
                               @RequestParam Long lectureId) {
         final Homework newHomework = homeworkService.createElementByUserForm(task, lectureId);
         homeworkService.saveHomework(newHomework);
+        return "redirect:/all-homework";
+    }
+
+    @GetMapping("/homework/delete/{id}")
+    public String deleteHomework(@PathVariable Long id) {
+        final Homework homework = homeworkService.getHomeworkById(id).orElse(null);
+        homeworkService.deleteHomework(Objects.requireNonNull(homework).getId());
         return "redirect:/all-homework";
     }
 }

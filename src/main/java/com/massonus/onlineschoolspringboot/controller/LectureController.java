@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Objects;
+
 @Controller
 public class LectureController {
     private final Menu menu;
@@ -45,6 +47,13 @@ public class LectureController {
 
         final Lecture newLecture = lectureService.createElementByUserForm(subject, description, teacherId, courseId);
         lectureService.saveLecture(newLecture);
+        return "redirect:/all-lectures";
+    }
+
+    @GetMapping("/lecture/delete/{id}")
+    public String deleteLecture(@PathVariable Long id) {
+        final Lecture lecture = lectureService.getLectureById(id).orElse(null);
+        lectureService.deleteLecture(Objects.requireNonNull(lecture).getId());
         return "redirect:/all-lectures";
     }
 }

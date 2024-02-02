@@ -21,7 +21,7 @@
 </nav>
 <h2>Select the button</h2>
 
-<table>
+<table border="1px">
     <thead>
     <tr>
         <th>Id</th>
@@ -30,6 +30,7 @@
         <th>Email</th>
         <th>Phone</th>
         <th>Role</th>
+        <th>delete</th>
     </tr>
     </thead>
     <tbody>
@@ -43,6 +44,7 @@
             <td>${perosn.email!""}</td>
             <td>${perosn.phone!""}</td>
             <td>${perosn.role!""}</td>
+            <td><a href="/person/delete/${perosn.getId()}"><p>DELETE</p></a></td>
         </tr>
     </#list>
     </tbody>

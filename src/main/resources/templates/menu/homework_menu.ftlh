@@ -21,13 +21,14 @@
 </nav>
 <h2>Select the button</h2>
 
-<table>
+<table border="1px">
     <thead>
     <tr>
         <th>Id</th>
         <th>Task</th>
         <th>Deadline</th>
         <th>Lecture id</th>
+        <th>delete</th>
     </tr>
     </thead>
     <tbody>
@@ -39,6 +40,7 @@
             </td>
             <td>${homework.deadline!""}</td>
             <td>${homework.lecture.getId()!""}</td>
+            <td><a href="/homework/delete/${homework.getId()}"><p>DELETE</p></a></td>
         </tr>
     </#list>
     </tbody>

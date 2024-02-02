@@ -7,7 +7,6 @@ import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -25,7 +24,7 @@ public class ImageController {
     }
 
     @GetMapping("/image")
-    public String adder(Model model) {
+    public String adder() {
 
         return "menu/image";
 
@@ -43,7 +42,7 @@ public class ImageController {
 
 
     @RequestMapping(value = "/images/{id}.jpg")
-    public ResponseEntity<?> showImage(@PathVariable Long id) throws IOException {
+    public ResponseEntity<?> showImage(@PathVariable Long id) {
 
         Image image = imageService.getImageById(id).get();
         return ResponseEntity.ok()
@@ -55,7 +54,7 @@ public class ImageController {
     }
 
     @GetMapping(value = "/images/{id}")
-    public String showImageOnFreemarker(@PathVariable Long id)  {
+    public String showImageOnFreemarker(@PathVariable Long id) {
 
         return "info/image_info";
 
