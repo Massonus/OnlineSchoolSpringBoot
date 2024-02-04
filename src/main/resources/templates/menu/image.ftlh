@@ -12,7 +12,10 @@
 <form enctype="multipart/form-data" method="post" action="/addImage">
     <label for="file">File:</label>
     <input type="file" name="file">
-    <input type="submit" value="Send">
+    <div>
+        <input type="hidden" name="_csrf" value="${_csrf.token}"/>
+        <input type="submit" value="Send">
+    </div>
 </form>
 
 </body>
