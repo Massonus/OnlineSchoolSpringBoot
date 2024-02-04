@@ -155,7 +155,7 @@ public class LectureService {
     public List<Person> getAllTeachers() {
         List<Person> allPeople = personRepo.findAll();
         return allPeople.stream()
-                .filter(a -> a.getRole().toString().equals("TEACHER"))
+                .filter(a -> a.getPosition().toString().equals("TEACHER"))
                 .collect(Collectors.toList());
     }
 }

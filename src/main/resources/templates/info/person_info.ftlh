@@ -36,8 +36,8 @@
     <input type="email" id="email" name="email" required><br><br>
 
     <label>Role:
-        <input type="radio" name="role" value="STUDENT" checked>STUDENT
-        <input type="radio" name="role" value="TEACHER">TEACHER
+        <input type="radio" name="position" value="STUDENT" checked>STUDENT
+        <input type="radio" name="position" value="TEACHER">TEACHER
     </label><br><br>
 
     <div class="choose-lectures">
