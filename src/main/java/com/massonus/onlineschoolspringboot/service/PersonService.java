@@ -3,7 +3,7 @@ package com.massonus.onlineschoolspringboot.service;
 import com.massonus.onlineschoolspringboot.entity.Course;
 import com.massonus.onlineschoolspringboot.entity.Lecture;
 import com.massonus.onlineschoolspringboot.entity.Person;
-import com.massonus.onlineschoolspringboot.entity.Role;
+import com.massonus.onlineschoolspringboot.entity.Position;
 import com.massonus.onlineschoolspringboot.repo.CourseRepo;
 import com.massonus.onlineschoolspringboot.repo.PersonRepo;
 import org.apache.commons.lang3.RandomStringUtils;
@@ -36,7 +36,7 @@ public class PersonService {
 
     Person person;
 
-    public void createElementByUserForm(final String firstName, final String lastName, final String phone, final String email, Role role, final List<Integer> lectureIdList, final List<Integer> courseIdList) {
+    public void createElementByUserForm(final String firstName, final String lastName, final String phone, final String email, Position position, final List<Integer> lectureIdList, final List<Integer> courseIdList) {
         person = new Person();
 
         person.setFirstName(firstName);
@@ -47,7 +47,7 @@ public class PersonService {
 
         person.setEmail(email);
 
-        person.setRole(role);
+        person.setPosition(position);
 
         personRepo.save(person);
 
@@ -57,7 +57,7 @@ public class PersonService {
 
     }
 
-    public Person refactorElementByUserForm(final Person person, final String firstName, final String lastName, final String phone, final String email, Role role, final List<Integer> lectureIdList, final List<Integer> courseIdList) {
+    public Person refactorElementByUserForm(final Person person, final String firstName, final String lastName, final String phone, final String email, Position position, final List<Integer> lectureIdList, final List<Integer> courseIdList) {
 
         person.setFirstName(firstName);
 
@@ -67,7 +67,7 @@ public class PersonService {
 
         person.setEmail(email);
 
-        person.setRole(role);
+        person.setPosition(position);
 
         personRepo.save(person);
 
@@ -88,18 +88,18 @@ public class PersonService {
             person.setFirstName("John");
             person.setLastName("Smith");
             person.setPhone("Samsung");
-            person.setRole(Role.TEACHER);
+            person.setPosition(Position.TEACHER);
         } else if (id < 20 || id > 30) {
             person.setFirstName("Nick");
             person.setLastName("Nikolos");
             person.setPhone("Xiaomi");
 
-            person.setRole(Role.STUDENT);
+            person.setPosition(Position.STUDENT);
         } else {
             person.setFirstName("Max");
             person.setLastName("Collins");
             person.setPhone("iPhone");
-            person.setRole(Role.TEACHER);
+            person.setPosition(Position.TEACHER);
         }
         person.setEmail(generateRandomString() + "@gmail.com");
 

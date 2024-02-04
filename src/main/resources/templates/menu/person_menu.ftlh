@@ -43,7 +43,7 @@
             </td>
             <td>${perosn.email}</td>
             <td>${perosn.phone}</td>
-            <td>${perosn.role}</td>
+            <td>${perosn.position}</td>
             <td><a href="/person/delete/${perosn.getId()}"><p>DELETE</p></a></td>
         </tr>
     </#list>
@@ -65,8 +65,8 @@
     <input type="email" id="email" name="email" required><br><br>
 
     <label>Role:
-        <input type="radio" name="role" value="STUDENT" checked>STUDENT
-        <input type="radio" name="role" value="TEACHER">TEACHER
+        <input type="radio" name="position" value="STUDENT" checked>STUDENT
+        <input type="radio" name="position" value="TEACHER">TEACHER
     </label><br><br>
 
     <div class="choose-lectures">

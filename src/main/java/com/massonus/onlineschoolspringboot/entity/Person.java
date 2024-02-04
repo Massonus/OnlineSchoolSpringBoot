@@ -2,7 +2,6 @@ package com.massonus.onlineschoolspringboot.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
 import lombok.ToString;
 
@@ -44,7 +43,7 @@ public class Person implements Comparable<Person>, Serializable {
 
     @Column(columnDefinition = "text", name = "role")
     @Enumerated(EnumType.STRING)
-    private Role role;
+    private Position position;
 
     @OneToMany(mappedBy = "person",
             cascade = CascadeType.ALL,
@@ -66,7 +65,7 @@ public class Person implements Comparable<Person>, Serializable {
                 ", lastName='" + lastName + '\'' +
                 ", phone='" + phone + '\'' +
                 ", email='" + email + '\'' +
-                ", role=" + role +
+                ", role=" + position +
                 '}';
     }
 

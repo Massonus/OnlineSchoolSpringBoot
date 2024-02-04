@@ -1,7 +1,7 @@
 package com.massonus.onlineschoolspringboot.controller;
 
 import com.massonus.onlineschoolspringboot.entity.Person;
-import com.massonus.onlineschoolspringboot.entity.Role;
+import com.massonus.onlineschoolspringboot.entity.Position;
 import com.massonus.onlineschoolspringboot.service.CourseService;
 import com.massonus.onlineschoolspringboot.service.LectureService;
 import com.massonus.onlineschoolspringboot.service.Menu;
@@ -61,7 +61,7 @@ public class PersonController {
                               @RequestParam List<Integer> lectureIdList,
                               @RequestParam List<Integer> courseIdList) {
 
-        personService.createElementByUserForm(firstName, lastName, phone, email, Role.valueOf(role), lectureIdList, courseIdList);
+        personService.createElementByUserForm(firstName, lastName, phone, email, Position.valueOf(role), lectureIdList, courseIdList);
         return "redirect:/all-people";
     }
 
@@ -83,7 +83,7 @@ public class PersonController {
                                  @RequestParam List<Integer> courseIdList) {
 
         final Person person = personService.getPersonById(id).get();
-        final Person editedPerson = personService.refactorElementByUserForm(person, firstName, lastName, phone, email, Role.valueOf(role), lectureIdList, courseIdList);
+        final Person editedPerson = personService.refactorElementByUserForm(person, firstName, lastName, phone, email, Position.valueOf(role), lectureIdList, courseIdList);
         personService.savePerson(editedPerson);
 
         return "redirect:/all-people";

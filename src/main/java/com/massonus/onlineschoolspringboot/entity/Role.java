@@ -1,8 +1,12 @@
 package com.massonus.onlineschoolspringboot.entity;
 
-public enum Role {
+import org.springframework.security.core.GrantedAuthority;
 
-    STUDENT,
+public enum Role implements GrantedAuthority {
+    USER, ADMIN;
 
-    TEACHER
+    @Override
+    public String getAuthority() {
+        return null;
+    }
 }
