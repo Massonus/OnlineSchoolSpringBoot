@@ -40,4 +40,9 @@ public class MainController {
         model.addAttribute("menu", menu.getMenuItems());
         return "index";
     }
+
+    @GetMapping("/test")
+    public String test () {
+        return "test";
+    }
 }
