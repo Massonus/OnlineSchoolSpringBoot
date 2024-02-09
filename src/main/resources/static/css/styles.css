@@ -8,6 +8,14 @@ body {
     font-size: 16px;
 }
 
+.error {
+    color: red;
+}
+
+.small-font {
+    font-size: 80%;
+}
+
 form {
     text-align: left;
     font-size: 22px;
