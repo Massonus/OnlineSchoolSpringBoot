@@ -84,8 +84,8 @@ public class LectureService {
         return lecture;
     }
 
-    public List<AdditionalMaterial> createAndFillMaterialsListForLecture(final Lecture lecture) {
-        List<AdditionalMaterial> materials = new ArrayList<>();
+    public Set<AdditionalMaterial> createAndFillMaterialsListForLecture(final Lecture lecture) {
+        Set<AdditionalMaterial> materials = new HashSet<>();
         Random random = new Random();
         int lengthMas = random.nextInt(1, 10);
         for (int i = 0; i < lengthMas; i++) {
@@ -97,8 +97,8 @@ public class LectureService {
         return materials;
     }
 
-    public List<Homework> createAndFillHomeworkListListForLecture(final Lecture lecture) {
-        List<Homework> homeworkList = new ArrayList<>();
+    public Set<Homework> createAndFillHomeworkListListForLecture(final Lecture lecture) {
+        Set<Homework> homeworkList = new HashSet<>();
         Random random = new Random();
         int lengthMas = random.nextInt(1, 10);
         for (int i = 0; i < lengthMas; i++) {

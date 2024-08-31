@@ -1,6 +1,7 @@
 package com.massonus.onlineschoolspringboot.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -20,6 +21,8 @@ public class User implements UserDetails {
     @Column(unique = true)
     private String name;
     private String password;
+
+    @NotBlank
     private String email;
 
     @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)

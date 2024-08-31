@@ -9,9 +9,7 @@ import java.io.Serializable;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 @Entity
 @Table(name = "lecture")
@@ -40,13 +38,13 @@ public class Lecture implements Comparable<Lecture>, Serializable {
             cascade = CascadeType.ALL,
             orphanRemoval = true)
     @ToString.Exclude
-    private List<Homework> homeworks = new ArrayList<>();
+    private Set<Homework> homeworks = new HashSet<>();
 
     @OneToMany(mappedBy = "lecture",
             cascade = CascadeType.ALL,
             orphanRemoval = true)
     @ToString.Exclude
-    private List<AdditionalMaterial> materials = new ArrayList<>();
+    private Set<AdditionalMaterial> materials = new HashSet<>();
 
     private String description;
 

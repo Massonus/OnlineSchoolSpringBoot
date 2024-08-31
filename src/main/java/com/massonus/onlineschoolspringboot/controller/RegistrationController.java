@@ -43,8 +43,8 @@ public class RegistrationController {
         user.setPassword(password);
         user.setName(username);
         user.setEmail(email);
-        user.setRoles(Collections.singleton(Role.ADMIN));
-        userService.addUser(user);
+        user.setRoles(Collections.singleton(Role.USER));
+        userService.addUser(user, false);
         return "redirect:/login";
     }
 
