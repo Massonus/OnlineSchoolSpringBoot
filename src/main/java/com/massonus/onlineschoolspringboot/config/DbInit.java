@@ -1,5 +1,7 @@
 package com.massonus.onlineschoolspringboot.config;
 
+import com.massonus.onlineschoolspringboot.entity.Lecture;
+import com.massonus.onlineschoolspringboot.entity.Person;
 import com.massonus.onlineschoolspringboot.entity.Role;
 import com.massonus.onlineschoolspringboot.entity.User;
 import com.massonus.onlineschoolspringboot.service.CourseService;
@@ -8,6 +10,7 @@ import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Component;
 
 import java.util.Collections;
+import java.util.Random;
 
 @Component
 public class DbInit {
@@ -24,10 +27,19 @@ public class DbInit {
         for (int i = 0; i < 4; i++) {
             courseService.createElementAuto();
         }
-        User user = new User();
-        user.setName("admin");
-        user.setPassword("admin");
-        user.setRoles(Collections.singleton(Role.ADMIN));
-        userService.addUser(user);
+
+        final User user = new User();
+        user.setEmail("user@gmail.com");
+        user.setName("cat");
+        user.setPassword("cat");
+
+        userService.addUser(user, false);
+
+        final User admin = new User();
+        admin.setEmail("admin@gmail.com");
+        admin.setName("admin");
+        admin.setPassword("admin");
+
+        userService.addUser(admin, true);
     }
 }

@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<img src="/images/${id}.jpg"/>
+<img alt="image" src="/images/${id}.jpg"/>
 
 </body>
 </html>
